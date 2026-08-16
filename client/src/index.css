@@ -422,3 +422,22 @@ a { color: inherit; text-decoration: none; }
   .proof-item { min-height: 108px; padding: 17px; }
   .contact-grid { gap: 38px; padding-bottom: 58px; }
 }
+
+/* Intro section focus: align both columns to the content edge and remove surplus showcase space. */
+@media (min-width: 621px) {
+  .intro-section { padding: 56px 0 54px; }
+  .intro-grid { grid-template-columns: .92fr 1.08fr; align-items: start; gap: 48px; }
+  .desk-card { min-height: 210px; padding: 20px; }
+  .desk-card .big-number { margin-top: 34px; font-size: 58px; }
+  .value-item { min-height: 62px; gap: 12px; }
+  .value-item h3 { font-size: 17px; }
+  .value-item p { font-size: 14px; }
+}
+
+@media (max-width: 620px) {
+  .intro-section { padding: 48px 0; }
+  .intro-grid { gap: 28px; }
+  .desk-card { min-height: 192px; padding: 18px; }
+  .desk-card .big-number { margin-top: 28px; font-size: 52px; }
+  .value-item { min-height: 60px; gap: 10px; }
+}

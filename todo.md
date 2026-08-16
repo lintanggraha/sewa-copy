@@ -41,3 +41,9 @@
 - [x] Memadatkan tinggi card, padding internal, dan ruang kosong yang tidak membawa informasi.
 - [x] Mengurangi jarak antar-section dan mengatur grid desktop agar lebih banyak konten bermakna terlihat per layar.
 - [x] Memeriksa hasil di desktop dan mobile sebelum mendorong perubahan ke GitHub.
+
+## Pemadatan Section Pengenalan — 16 Agustus 2026
+
+- [x] Mengurangi padding dan gap yang membuat ruang kosong besar di section pengenalan.
+- [x] Mengecilkan card informasi dan merapatkan daftar benefit di sampingnya.
+- [x] Memeriksa hasil perbaikan pada desktop dan mobile.
