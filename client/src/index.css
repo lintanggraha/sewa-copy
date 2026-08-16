@@ -441,3 +441,86 @@ a { color: inherit; text-decoration: none; }
   .desk-card .big-number { margin-top: 28px; font-size: 52px; }
   .value-item { min-height: 60px; gap: 10px; }
 }
+
+/* Full-page density pass: compact every later card group, not only the opening section. */
+@media (min-width: 621px) {
+  .services-section { padding: 62px 0; }
+  .services-grid { margin-top: 26px; }
+  .service-card { min-height: 174px; padding: 18px; }
+  .service-card .service-icon { width: 32px; height: 32px; }
+  .service-card h3 { margin-top: 20px; font-size: 19px; }
+  .service-card p { margin-top: 7px; font-size: 14px; }
+  .service-card .card-arrow { margin-top: 11px; }
+
+  .catalog-section { padding: 66px 0 58px; }
+  .machines-grid { gap: 14px; margin-top: 18px; }
+  .machine-ticket { min-height: 342px; }
+  .machine-visual { height: 146px; }
+  .machine-content { padding: 14px; }
+  .machine-ticket h3 { margin-top: 10px; font-size: 19px; }
+  .machine-use { min-height: 28px; margin: 5px 0 8px; font-size: 13px; }
+  .machine-spec { padding: 5px 7px; }
+  .machine-price { padding-top: 10px; }
+
+  .pricing-section { padding: 64px 0; }
+  .pricing-grid { gap: 12px; margin-top: 26px; }
+  .plan-card { min-height: 340px; padding: 20px; }
+  .plan-card h3 { font-size: 25px; }
+  .plan-price { margin-top: 18px; }
+  .plan-list { gap: 8px; padding-top: 12px; }
+  .plan-list li { font-size: 14px; }
+  .plan-action { right: 20px; bottom: 20px; left: 20px; padding-top: 11px; }
+
+  .calculator-section { padding: 64px 0; }
+  .calculator-grid { gap: 42px; }
+  .calc-note { margin-top: 16px; }
+  .calc-panel { padding: 20px; }
+  .calc-controls { gap: 10px; margin-top: 15px; }
+  .control input, .control select { min-height: 42px; }
+  .calc-result { margin-top: 14px; padding: 15px; }
+  .calc-panel .button-primary { margin-top: 14px; }
+
+  .proof-section { padding: 52px 0; }
+  .proof-grid { gap: 38px; }
+  .proof-card { padding: 19px 20px; }
+  .proof-card h3 { margin-top: 12px; font-size: 23px; }
+  .proof-card p { margin-top: 9px; font-size: 14px; }
+  .proof-card .placeholder-tag { margin-top: 12px; padding: 6px 8px; }
+  .proof-item { min-height: 96px; padding: 14px; }
+  .proof-item h4 { margin-top: 12px; font-size: 16px; }
+  .proof-item p { margin-top: 5px; font-size: 13px; }
+
+  .contact-section { padding-top: 64px; }
+  .contact-grid { gap: 42px; padding-bottom: 56px; }
+  .contact-details { gap: 9px; margin-top: 19px; }
+  .contact-form { padding: 20px; }
+  .form-grid { gap: 10px; margin-top: 16px; }
+  .form-field textarea { min-height: 64px; }
+  .form-submit { margin-top: 13px; }
+}
+
+@media (max-width: 620px) {
+  .services-section { padding: 54px 0; }
+  .service-card { min-height: 152px; padding: 17px; }
+  .service-card .service-icon { width: 30px; height: 30px; }
+  .service-card h3 { margin-top: 17px; font-size: 18px; }
+  .service-card p { font-size: 13px; }
+  .machine-ticket { min-height: 318px; }
+  .machine-visual { height: 140px; }
+  .machine-content { padding: 13px; }
+  .machine-ticket h3 { font-size: 18px; }
+  .machine-use { min-height: 25px; margin: 4px 0 7px; font-size: 12px; }
+  .pricing-section { padding: 54px 0; }
+  .plan-card { min-height: 328px; padding: 19px; }
+  .plan-price { margin-top: 18px; }
+  .plan-action { right: 19px; bottom: 19px; left: 19px; }
+  .calculator-section { padding: 54px 0; }
+  .calc-panel { padding: 18px; }
+  .proof-section { padding: 46px 0; }
+  .proof-card { padding: 18px; }
+  .proof-item { min-height: 88px; padding: 14px; }
+  .contact-section { padding-top: 54px; }
+  .contact-grid { gap: 30px; padding-bottom: 46px; }
+  .contact-form { padding: 18px; }
+  .form-field textarea { min-height: 60px; }
+}

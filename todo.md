@@ -47,3 +47,9 @@
 - [x] Mengurangi padding dan gap yang membuat ruang kosong besar di section pengenalan.
 - [x] Mengecilkan card informasi dan merapatkan daftar benefit di sampingnya.
 - [x] Memeriksa hasil perbaikan pada desktop dan mobile.
+
+## Density Pass Menyeluruh — 16 Agustus 2026
+
+- [x] Memadatkan card layanan, katalog unit, paket, estimator, bukti layanan, dan form di section bawah.
+- [x] Menyetarakan padding, min-height, dan jarak action pada semua card agar ritme scroll konsisten.
+- [x] Memeriksa seluruh halaman pada desktop dan mobile sebelum sinkronisasi GitHub.
