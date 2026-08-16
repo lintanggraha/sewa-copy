@@ -17,10 +17,16 @@
 
 ## Sinkronisasi GitHub — 16 Agustus 2026
 
-- [ ] Memeriksa akses dan branch default repository lintanggraha/sewa-copy.
-- [ ] Mendorong source code versi terbaru ke repository tujuan.
-- [ ] Memverifikasi commit terbaru di GitHub.
+- [x] Memeriksa akses dan branch default repository lintanggraha/sewa-copy.
+- [x] Mendorong source code versi terbaru ke repository tujuan.
+- [x] Memverifikasi commit terbaru di GitHub.
 
 ### Percobaan Ulang Izin Push
 
-- [ ] Mencoba kembali push commit website ke repository lintanggraha/sewa-copy.
+- [x] Mencoba kembali push commit website ke repository lintanggraha/sewa-copy.
+
+## Perbaikan Vercel — 16 Agustus 2026
+
+- [x] Memastikan Vercel menggunakan perintah build Vite dan output `dist/public`.
+- [x] Menambahkan konfigurasi static deployment serta fallback SPA yang diperlukan.
+- [ ] Memverifikasi build dan mendorong perbaikan ke GitHub untuk redeploy.
