@@ -33,10 +33,10 @@ const ASSET = {
 };
 
 const CATALOG_IMAGES: Record<string, string> = {
-  "SC-2625": "/manus-storage/canon-ir-2625_e32ef861.webp",
-  "SC-S2320": "/manus-storage/xerox-s2320_5444a117.jpg",
-  "SC-C2560": "/manus-storage/fuji-apeosport-c2560_a92e37d3.png",
-  "SC-3055": "/manus-storage/ricoh-mp-3055_4ac8e4d9.png",
+  "SC-2625": "https://raw.githubusercontent.com/lintanggraha/sewa-copy/main/client/public/catalog/canon-ir-2625.webp",
+  "SC-S2320": "https://raw.githubusercontent.com/lintanggraha/sewa-copy/main/client/public/catalog/xerox-s2320.jpg",
+  "SC-C2560": "https://raw.githubusercontent.com/lintanggraha/sewa-copy/main/client/public/catalog/fuji-apeosport-c2560.png",
+  "SC-3055": "https://raw.githubusercontent.com/lintanggraha/sewa-copy/main/client/public/catalog/ricoh-mp-3055.png",
 };
 
 // [EDITABLE] Replace this number with the approved production WhatsApp Business number before publishing.
