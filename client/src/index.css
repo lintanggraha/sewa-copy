@@ -339,7 +339,7 @@ a { color: inherit; text-decoration: none; }
 .proof-card { border-radius: 22px; }
 .proof-items { border-radius: 18px; overflow: hidden; }
 .proof-item { border-radius: 14px; }
-.contact-section { border-radius: 34px 34px 0 0; overflow: hidden; }
+.contact-section { border-radius: 0; overflow: hidden; }
 .contact-form { border-radius: 24px; }
 .form-field input, .form-field select, .form-field textarea { border-radius: 10px; }
 .floating-wa { border-radius: 999px; }
@@ -349,7 +349,7 @@ a { color: inherit; text-decoration: none; }
   .hero { border-radius: 0; }
   .hero-rail { border-radius: 17px 17px 10px 17px; }
   .services-grid { border-radius: 17px; }
-  .contact-section { border-radius: 24px 24px 0 0; }
+  .contact-section { border-radius: 0; }
 }
 
 /* Compact density pass: preserve the editorial hierarchy while removing non-informative vertical space. */

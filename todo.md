@@ -71,3 +71,9 @@
 - [x] Menghapus konflik antara daftar manfaat dan CTA absolut pada tiga card paket.
 - [x] Memastikan tinggi card dan CTA konsisten pada desktop maupun mobile.
 - [x] Memeriksa hasil perbaikan sebelum sinkronisasi GitHub dan Vercel.
+
+## Koreksi Strip Navy — 16 Agustus 2026
+
+- [x] Menghapus radius pada section navy horizontal yang berfungsi sebagai strip pembatas.
+- [x] Memastikan card dan komponen lain tetap mempertahankan bentuknya.
+- [x] Memeriksa hasil pada desktop dan mobile.
