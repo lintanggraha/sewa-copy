@@ -33,5 +33,11 @@
 
 ## Perbaikan Logo Vercel — 16 Agustus 2026
 
-- [ ] Mengganti referensi `/manus-storage` logo dengan file static publik.
-- [ ] Memverifikasi header dan footer menampilkan logo setelah redeploy Vercel.
+- [x] Mengganti referensi `/manus-storage` logo dengan mark SVG inline yang dibundel ke aplikasi.
+- [x] Memverifikasi header dan footer menampilkan logo setelah redeploy Vercel.
+
+## Optimasi Kepadatan Layout — 16 Agustus 2026
+
+- [x] Memadatkan tinggi card, padding internal, dan ruang kosong yang tidak membawa informasi.
+- [x] Mengurangi jarak antar-section dan mengatur grid desktop agar lebih banyak konten bermakna terlihat per layar.
+- [x] Memeriksa hasil di desktop dan mobile sebelum mendorong perubahan ke GitHub.

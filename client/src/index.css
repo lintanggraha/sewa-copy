@@ -350,3 +350,75 @@ a { color: inherit; text-decoration: none; }
   .services-grid { border-radius: 17px; }
   .contact-section { border-radius: 24px 24px 0 0; }
 }
+
+/* Compact density pass: preserve the editorial hierarchy while removing non-informative vertical space. */
+@media (min-width: 621px) {
+  .hero { min-height: 650px; }
+  .hero-grid { min-height: 616px; gap: 58px; padding: 50px 0 64px; }
+  .hero-actions { margin-top: 27px; }
+  .hero-note { margin-top: 28px; }
+  .rail-head { padding: 13px 17px; }
+  .rail-step { min-height: 78px; padding: 12px 17px; }
+  .service-rail-item { min-height: 60px; padding: 0 22px; }
+
+  .intro-section { padding: 88px 0 76px; }
+  .intro-grid { gap: 66px; }
+  .desk-card { min-height: 244px; padding: 23px; }
+  .desk-card .big-number { margin-top: 48px; font-size: 66px; }
+  .value-item { min-height: 72px; }
+
+  .services-section { padding: 78px 0; }
+  .services-grid { margin-top: 34px; }
+  .service-card { min-height: 208px; padding: 22px; }
+  .service-card h3 { margin-top: 30px; }
+  .service-card .card-arrow { margin-top: 17px; }
+
+  .catalog-section { padding: 88px 0 78px; }
+  .catalog-status { margin-top: 16px; }
+  .machines-grid { margin-top: 22px; }
+  .machine-ticket { min-height: 392px; }
+  .machine-content { padding: 17px 17px 16px; }
+  .machine-use { margin: 6px 0 11px; }
+  .machine-price { padding-top: 13px; }
+
+  .pricing-section { padding: 82px 0; }
+  .pricing-grid { margin-top: 34px; }
+  .plan-card { min-height: 398px; padding: 25px; }
+  .plan-price { margin-top: 24px; }
+  .plan-list { gap: 10px; padding-top: 15px; }
+  .plan-action { right: 25px; bottom: 25px; left: 25px; padding-top: 14px; }
+
+  .calculator-section { padding: 82px 0; }
+  .calculator-grid { gap: 58px; }
+  .calc-panel { padding: 24px; }
+  .calc-controls { margin-top: 19px; }
+
+  .proof-section { padding: 68px 0; }
+  .proof-grid { gap: 54px; }
+  .proof-item { min-height: 126px; padding: 17px; }
+  .proof-item h4 { margin-top: 18px; }
+
+  .contact-section { padding-top: 82px; }
+  .contact-grid { gap: 56px; padding-bottom: 74px; }
+  .contact-details { margin-top: 26px; }
+}
+
+@media (max-width: 620px) {
+  .hero-grid { padding-top: 44px; padding-bottom: 112px; }
+  .hero-note { margin-top: 26px; }
+  .intro-section, .catalog-section, .pricing-section, .calculator-section, .proof-section { padding: 64px 0; }
+  .contact-section { padding: 64px 0 0; }
+  .services-section { padding: 64px 0; }
+  .services-grid { margin-top: 28px; }
+  .service-card { min-height: 174px; padding: 20px; }
+  .service-card h3 { margin-top: 22px; }
+  .service-card .card-arrow { margin-top: 15px; }
+  .machine-ticket { min-height: 352px; }
+  .machine-content { padding: 16px; }
+  .pricing-grid { margin-top: 28px; }
+  .plan-card { min-height: 360px; padding: 22px; }
+  .plan-price { margin-top: 22px; }
+  .plan-action { right: 22px; bottom: 22px; left: 22px; }
+  .proof-item { min-height: 108px; padding: 17px; }
+  .contact-grid { gap: 38px; padding-bottom: 58px; }
+}
