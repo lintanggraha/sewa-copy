@@ -58,4 +58,10 @@
 
 - [x] Menemukan gambar produk asli untuk Canon iR 2625, Xerox DocuCentre S2320, Fuji Xerox ApeosPort C2560, dan Ricoh MP 3055.
 - [x] Menyimpan asset gambar ke storage statis yang kompatibel dengan Vercel.
-- [ ] Mengganti placeholder katalog dan memverifikasi semua gambar pada deployment publik.
+- [x] Mengganti placeholder katalog dan memverifikasi semua gambar pada deployment publik.
+
+## Motion dan Interaksi — 16 Agustus 2026
+
+- [x] Menambahkan reveal halus untuk section dan card ketika masuk viewport.
+- [x] Menambahkan hover, active state, serta feedback visual pada tombol, filter, dan card katalog.
+- [x] Menghormati preferensi reduced motion dan memeriksa hasil pada desktop serta mobile.

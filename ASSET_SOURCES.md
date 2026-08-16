@@ -12,3 +12,5 @@ Gambar berikut dipilih dari hasil pencarian produk untuk menggantikan ilustrasi 
 ## Penyajian Deployment
 
 Foto katalog tersedia melalui file `client/public/catalog/` di repository GitHub dan dipanggil dari CDN `raw.githubusercontent.com`. Pendekatan ini digunakan karena path `/manus-storage` tidak dapat dimuat pada deployment Vercel eksternal.
+
+Verifikasi akhir pada deployment publik mengonfirmasi keempat gambar termuat normal dari `raw.githubusercontent.com`: Canon 960×960, Xerox 1024×768, Fuji Xerox 2048×1368, dan Ricoh 980×1027.

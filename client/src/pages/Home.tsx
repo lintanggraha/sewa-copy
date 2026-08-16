@@ -26,7 +26,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 
 const ASSET = {
   hero: "/manus-storage/sewa-copy-hero_fd62557d.jpg",
@@ -87,6 +87,33 @@ export default function Home() {
   const [units, setUnits] = useState(1);
   const [duration, setDuration] = useState(1);
   const [machineType, setMachineType] = useState<"B/W" | "Warna">("B/W");
+
+  useEffect(() => {
+    const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) {
+      targets.forEach((target) => target.classList.add("is-visible"));
+      return;
+    }
+
+    document.documentElement.classList.add("motion-ready");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" },
+    );
+
+    targets.forEach((target) => observer.observe(target));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("motion-ready");
+    };
+  }, []);
 
   const filteredMachines = useMemo(() => machines.filter((machine) => {
     const passesType = typeFilter === "Semua" || machine.type === typeFilter;
@@ -173,7 +200,7 @@ export default function Home() {
         </section>
 
         <section className="intro-section" aria-labelledby="mengapa-kami">
-          <div className="page-width intro-grid">
+          <div className="page-width intro-grid" data-reveal="true">
             <div className="desk-card">
               <span className="card-label">OPERASIONAL TANPA RIBET</span>
               <div className="big-number">01</div>
@@ -193,22 +220,22 @@ export default function Home() {
 
         <section id="layanan" className="services-section" aria-labelledby="layanan-title">
           <div className="page-width">
-            <div className="services-heading-row"><div><span className="eyebrow light">Pilihan layanan</span><h2 id="layanan-title" className="section-heading">Durasi sewa mengikuti cara kerja Anda.</h2></div><p className="section-copy">Dari kebutuhan harian yang singkat hingga kontrak perusahaan yang disusun lebih spesifik.</p></div>
+            <div className="services-heading-row" data-reveal="true"><div><span className="eyebrow light">Pilihan layanan</span><h2 id="layanan-title" className="section-heading">Durasi sewa mengikuti cara kerja Anda.</h2></div><p className="section-copy">Dari kebutuhan harian yang singkat hingga kontrak perusahaan yang disusun lebih spesifik.</p></div>
             <div className="services-grid">
-              {services.map(({ icon: Icon, title, description }) => <article key={title} className="service-card"><span className="service-icon"><Icon size={19} /></span><h3>{title}</h3><p>{description}</p><span className="card-arrow"><ArrowRight size={18} /></span></article>)}
+              {services.map(({ icon: Icon, title, description }) => <article key={title} className="service-card" data-reveal="true"><span className="service-icon"><Icon size={19} /></span><h3>{title}</h3><p>{description}</p><span className="card-arrow"><ArrowRight size={18} /></span></article>)}
             </div>
           </div>
         </section>
 
         <section id="katalog" className="catalog-section" aria-labelledby="katalog-title">
           <div className="page-width">
-            <div className="catalog-top">
+            <div className="catalog-top" data-reveal="true">
               <div><span className="eyebrow">Katalog unit [editable]</span><h2 id="katalog-title" className="section-heading">Pilih mesin dari ritme kerja, bukan sekadar merek.</h2></div>
               <div className="catalog-filter" aria-label="Filter katalog"><button className={`filter-button ${typeFilter === "Semua" ? "active" : ""}`} onClick={() => setTypeFilter("Semua")}>Semua tipe</button><button className={`filter-button ${typeFilter === "B/W" ? "active" : ""}`} onClick={() => setTypeFilter("B/W")}>B/W</button><button className={`filter-button ${typeFilter === "Warna" ? "active" : ""}`} onClick={() => setTypeFilter("Warna")}>Warna</button><button className={`filter-button ${speedFilter === "20+ ppm" ? "active" : ""}`} onClick={() => setSpeedFilter(speedFilter === "20+ ppm" ? "Semua" : "20+ ppm")}>20+ ppm</button><button className={`filter-button ${speedFilter === "25+ ppm" ? "active" : ""}`} onClick={() => setSpeedFilter(speedFilter === "25+ ppm" ? "Semua" : "25+ ppm")}>25+ ppm</button></div>
             </div>
-            <div className="catalog-status"><Filter size={13} /><span className="line" />Menampilkan {filteredMachines.length} dari {machines.length} unit demo</div>
+            <div className="catalog-status" data-reveal="true"><Filter size={13} /><span className="line" />Menampilkan {filteredMachines.length} dari {machines.length} unit demo</div>
             <div className="machines-grid">
-              {filteredMachines.map((machine) => <article className="machine-ticket" key={machine.id}><div className="machine-visual"><span className="ticket-bar">{machine.id}</span><MachineVisual machine={machine} /></div><div className="machine-content"><div className="machine-meta"><span>{machine.type}</span><span className="ready">{machine.availability}</span></div><h3>{machine.name}</h3><p className="machine-use">{machine.recommended}</p><div className="machine-specs"><span className="machine-spec">{machine.ppm} ppm</span><span className="machine-spec">Sewa fleksibel</span></div><div className="machine-price"><div><span>Mulai dari</span><strong>{formatIDR(machine.price)}<small>/bln</small></strong></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin menanyakan unit ${machine.name}.`)} target="_blank" rel="noreferrer" aria-label={`Tanyakan ${machine.name}`}><ArrowRight size={19} /></a></div></div></article>)}
+              {filteredMachines.map((machine) => <article className="machine-ticket" key={machine.id} data-reveal="true"><div className="machine-visual"><span className="ticket-bar">{machine.id}</span><MachineVisual machine={machine} /></div><div className="machine-content"><div className="machine-meta"><span>{machine.type}</span><span className="ready">{machine.availability}</span></div><h3>{machine.name}</h3><p className="machine-use">{machine.recommended}</p><div className="machine-specs"><span className="machine-spec">{machine.ppm} ppm</span><span className="machine-spec">Sewa fleksibel</span></div><div className="machine-price"><div><span>Mulai dari</span><strong>{formatIDR(machine.price)}<small>/bln</small></strong></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin menanyakan unit ${machine.name}.`)} target="_blank" rel="noreferrer" aria-label={`Tanyakan ${machine.name}`}><ArrowRight size={19} /></a></div></div></article>)}
               {filteredMachines.length === 0 && <p className="empty-catalog">Tidak ada unit yang cocok dengan filter ini. Ubah filter atau hubungi tim untuk kebutuhan khusus.</p>}
             </div>
           </div>
@@ -216,31 +243,31 @@ export default function Home() {
 
         <section id="paket" className="pricing-section" aria-labelledby="paket-title">
           <div className="page-width">
-            <div className="pricing-head"><div><span className="eyebrow">Paket harga [editable]</span><h2 id="paket-title" className="section-heading">Paket jelas untuk memulai, ruang fleksibel untuk berkembang.</h2></div><p className="section-copy">Harga bersifat ilustratif untuk kebutuhan demo. Hubungi sales untuk komposisi unit dan volume yang lebih spesifik.</p></div>
+            <div className="pricing-head" data-reveal="true"><div><span className="eyebrow">Paket harga [editable]</span><h2 id="paket-title" className="section-heading">Paket jelas untuk memulai, ruang fleksibel untuk berkembang.</h2></div><p className="section-copy">Harga bersifat ilustratif untuk kebutuhan demo. Hubungi sales untuk komposisi unit dan volume yang lebih spesifik.</p></div>
             <div className="pricing-grid">
-              {plans.map((plan) => <article className={`plan-card ${plan.emphasis ? "featured" : ""}`} key={plan.name}><span className="plan-label">{plan.label}</span><h3>{plan.name}</h3><div className="plan-price"><strong>{plan.price}</strong><span>{plan.suffix}</span></div><p className="plan-duration">{plan.duration}</p><ul className="plan-list">{plan.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul><a className="plan-action" href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengetahui paket ${plan.name}.`)} target="_blank" rel="noreferrer">Tanyakan paket <ArrowRight size={18} /></a></article>)}
+              {plans.map((plan) => <article className={`plan-card ${plan.emphasis ? "featured" : ""}`} key={plan.name} data-reveal="true"><span className="plan-label">{plan.label}</span><h3>{plan.name}</h3><div className="plan-price"><strong>{plan.price}</strong><span>{plan.suffix}</span></div><p className="plan-duration">{plan.duration}</p><ul className="plan-list">{plan.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul><a className="plan-action" href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengetahui paket ${plan.name}.`)} target="_blank" rel="noreferrer">Tanyakan paket <ArrowRight size={18} /></a></article>)}
             </div>
           </div>
         </section>
 
         <section className="calculator-section" aria-labelledby="calc-title">
           <div className="page-width calculator-grid">
-            <div><span className="eyebrow light">Estimator cepat</span><h2 id="calc-title" className="section-heading">Dapatkan gambaran biaya sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Angka berikut adalah estimasi awal, bukan penawaran final.</p><p className="calc-note"><Calculator size={15} />Diskon ilustratif akan diterapkan pada durasi 6 dan 12 bulan.</p></div>
-            <div className="calc-panel"><div className="calc-panel-head"><h3>Estimator sewa</h3><span>VERSI DEMO</span></div><div className="calc-controls"><div className="control"><label htmlFor="unit-count">Jumlah unit</label><input id="unit-count" type="number" min="1" max="20" value={units} onChange={(event) => setUnits(Math.max(1, Number(event.target.value)))} /></div><div className="control"><label htmlFor="months">Durasi sewa</label><input id="months" type="number" min="1" max="36" value={duration} onChange={(event) => setDuration(Math.max(1, Number(event.target.value)))} /></div><div className="control full"><label htmlFor="machine-type">Tipe mesin</label><select id="machine-type" value={machineType} onChange={(event) => setMachineType(event.target.value as "B/W" | "Warna")}><option value="B/W">B/W — mulai Rp750.000 / unit / bulan</option><option value="Warna">Warna — mulai Rp1.500.000 / unit / bulan</option></select></div></div><div className="calc-result"><div><span>Estimasi masa sewa</span><strong>{formatIDR(estimate)}</strong></div><p className="result-note">Belum termasuk kebutuhan volume cetak atau konfigurasi khusus.</p></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengonfirmasi estimasi ${units} unit tipe ${machineType} untuk ${duration} bulan.`)} target="_blank" rel="noreferrer" className="button-primary">Minta penawaran yang sesuai <ArrowRight size={17} /></a></div>
+            <div data-reveal="true"><span className="eyebrow light">Estimator cepat</span><h2 id="calc-title" className="section-heading">Dapatkan gambaran biaya sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Angka berikut adalah estimasi awal, bukan penawaran final.</p><p className="calc-note"><Calculator size={15} />Diskon ilustratif akan diterapkan pada durasi 6 dan 12 bulan.</p></div>
+            <div className="calc-panel" data-reveal="true"><div className="calc-panel-head"><h3>Estimator sewa</h3><span>VERSI DEMO</span></div><div className="calc-controls"><div className="control"><label htmlFor="unit-count">Jumlah unit</label><input id="unit-count" type="number" min="1" max="20" value={units} onChange={(event) => setUnits(Math.max(1, Number(event.target.value)))} /></div><div className="control"><label htmlFor="months">Durasi sewa</label><input id="months" type="number" min="1" max="36" value={duration} onChange={(event) => setDuration(Math.max(1, Number(event.target.value)))} /></div><div className="control full"><label htmlFor="machine-type">Tipe mesin</label><select id="machine-type" value={machineType} onChange={(event) => setMachineType(event.target.value as "B/W" | "Warna")}><option value="B/W">B/W — mulai Rp750.000 / unit / bulan</option><option value="Warna">Warna — mulai Rp1.500.000 / unit / bulan</option></select></div></div><div className="calc-result"><div><span>Estimasi masa sewa</span><strong>{formatIDR(estimate)}</strong></div><p className="result-note">Belum termasuk kebutuhan volume cetak atau konfigurasi khusus.</p></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengonfirmasi estimasi ${units} unit tipe ${machineType} untuk ${duration} bulan.`)} target="_blank" rel="noreferrer" className="button-primary">Minta penawaran yang sesuai <ArrowRight size={17} /></a></div>
           </div>
         </section>
 
         <section className="proof-section" aria-labelledby="kepercayaan-title">
           <div className="page-width proof-grid">
-            <div className="proof-card"><h3 id="kepercayaan-title">Tempat untuk bukti kepercayaan yang nyata.</h3><p>Masukkan logo, studi kasus, atau kutipan pelanggan setelah memperoleh persetujuan tertulis. Demo ini sengaja tidak memuat testimoni rekaan.</p><span className="placeholder-tag">[EDITABLE] Tambahkan referensi klien tervalidasi</span></div>
-            <div className="proof-items"><article className="proof-item"><ShieldCheck size={21} /><h4>Unit terkelola</h4><p>Dokumentasikan standar pemeriksaan sebelum pengiriman.</p></article><article className="proof-item"><Settings2 size={21} /><h4>Rencana perawatan</h4><p>Jelaskan jadwal dan cakupan maintenance yang disepakati.</p></article><article className="proof-item"><MapPin size={21} /><h4>Cakupan layanan</h4><p>[EDITABLE] Tampilkan area layanan aktual dan ketentuannya.</p></article></div>
+            <div className="proof-card" data-reveal="true"><h3 id="kepercayaan-title">Tempat untuk bukti kepercayaan yang nyata.</h3><p>Masukkan logo, studi kasus, atau kutipan pelanggan setelah memperoleh persetujuan tertulis. Demo ini sengaja tidak memuat testimoni rekaan.</p><span className="placeholder-tag">[EDITABLE] Tambahkan referensi klien tervalidasi</span></div>
+            <div className="proof-items"><article className="proof-item" data-reveal="true"><ShieldCheck size={21} /><h4>Unit terkelola</h4><p>Dokumentasikan standar pemeriksaan sebelum pengiriman.</p></article><article className="proof-item" data-reveal="true"><Settings2 size={21} /><h4>Rencana perawatan</h4><p>Jelaskan jadwal dan cakupan maintenance yang disepakati.</p></article><article className="proof-item" data-reveal="true"><MapPin size={21} /><h4>Cakupan layanan</h4><p>[EDITABLE] Tampilkan area layanan aktual dan ketentuannya.</p></article></div>
           </div>
         </section>
 
         <section id="kontak" className="contact-section" aria-labelledby="kontak-title">
           <div className="page-width contact-grid">
-            <div><span className="eyebrow light">Mulai dari kebutuhan Anda</span><h2 id="kontak-title" className="section-heading">Ceritakan alur cetak tim Anda.</h2><p className="section-copy">Isi formulir singkat ini. Pada demo, tombol kirim akan membuka WhatsApp dengan ringkasan kebutuhan yang telah Anda isi.</p><div className="contact-details"><div className="contact-detail"><Phone size={18} /><div><small>WHATSAPP [EDITABLE]</small>+62 8xx-xxxx-xxxx</div></div><div className="contact-detail"><MapPin size={18} /><div><small>AREA LAYANAN [EDITABLE]</small>Jabodetabek dan sekitarnya</div></div><div className="contact-detail"><Clock3 size={18} /><div><small>JAM OPERASIONAL [EDITABLE]</small>Senin–Sabtu · 08.00–17.00</div></div></div></div>
-            <form className="contact-form" onSubmit={submitQuote}><div className="form-head"><div><h3>Ajukan penawaran</h3><p>Data digunakan untuk menyusun kebutuhan awal Anda.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp demo <ArrowRight size={17} /></button><p className="form-help">[EDITABLE] Ganti nomor demo dengan WhatsApp Business dan sambungkan workflow follow-up sebelum digunakan di production.</p></form>
+            <div data-reveal="true"><span className="eyebrow light">Mulai dari kebutuhan Anda</span><h2 id="kontak-title" className="section-heading">Ceritakan alur cetak tim Anda.</h2><p className="section-copy">Isi formulir singkat ini. Pada demo, tombol kirim akan membuka WhatsApp dengan ringkasan kebutuhan yang telah Anda isi.</p><div className="contact-details"><div className="contact-detail"><Phone size={18} /><div><small>WHATSAPP [EDITABLE]</small>+62 8xx-xxxx-xxxx</div></div><div className="contact-detail"><MapPin size={18} /><div><small>AREA LAYANAN [EDITABLE]</small>Jabodetabek dan sekitarnya</div></div><div className="contact-detail"><Clock3 size={18} /><div><small>JAM OPERASIONAL [EDITABLE]</small>Senin–Sabtu · 08.00–17.00</div></div></div></div>
+            <form className="contact-form" onSubmit={submitQuote} data-reveal="true"><div className="form-head"><div><h3>Ajukan penawaran</h3><p>Data digunakan untuk menyusun kebutuhan awal Anda.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp demo <ArrowRight size={17} /></button><p className="form-help">[EDITABLE] Ganti nomor demo dengan WhatsApp Business dan sambungkan workflow follow-up sebelum digunakan di production.</p></form>
           </div>
         </section>
       </main>
