@@ -29,7 +29,6 @@ import {
 import { useMemo, useState, type FormEvent } from "react";
 
 const ASSET = {
-  logo: "/manus-storage/sewa-copy-logo_7217174a.png",
   hero: "/manus-storage/sewa-copy-hero_fd62557d.jpg",
   machineBw: "/manus-storage/sewa-copy-machine-bw_2b8a3257.jpg",
   machineColor: "/manus-storage/sewa-copy-machine-color_bc7a78fa.jpg",
@@ -66,6 +65,19 @@ function MachineVisual({ machine }: { machine: Machine }) {
     return <img src={ASSET.machineColor} alt={`[EDITABLE] Ilustrasi unit ${machine.name}`} />;
   }
   return <div className="machine-sketch" aria-label={`Diagram unit ${machine.name}`} role="img" />;
+}
+
+function BrandMark() {
+  return (
+    <span className="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 44 44" focusable="false">
+        <rect width="44" height="44" rx="8" fill="#eaf3f7" />
+        <path d="M29.9 10.1c-2.2-1.8-5.2-2.7-8.6-2.7-4.6 0-8 2-8 5.3 0 2.7 2 4.1 6.7 5l3.6.7c1.7.3 2.5.9 2.5 1.8 0 1.1-1.3 1.8-3.6 1.8-2.5 0-4.7-.9-6.6-2.5l-3.2 4.1c2.4 2.3 5.8 3.5 10 3.5 5.3 0 8.8-2.3 8.8-5.9 0-2.8-2.1-4.5-6.6-5.4l-3.7-.7c-1.9-.4-2.8-.9-2.8-1.8 0-1 1.1-1.6 3.1-1.6 2 0 3.8.7 5.3 1.8l3.1-3.2Z" fill="#0a2b4d" />
+        <path d="M31.7 18.8h4.2v11.4h-4.2z" fill="#f47a2a" />
+        <path d="M31.7 30.2h4.2v3.7h-4.2z" fill="#2d7ca8" />
+      </svg>
+    </span>
+  );
 }
 
 export default function Home() {
@@ -116,7 +128,7 @@ export default function Home() {
       <header className="main-nav">
         <div className="page-width nav-inner">
           <a href="#beranda" className="brand" aria-label="PT Sewa Copy Sejahtera, kembali ke beranda">
-            <img src={ASSET.logo} alt="" />
+            <BrandMark />
             <span className="brand-name">SEWA COPY<small>Sejahtera · Service Desk</small></span>
           </a>
           <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Navigasi utama">
@@ -233,7 +245,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="footer"><div className="page-width footer-inner"><a href="#beranda" className="brand"><img src={ASSET.logo} alt="" /><span className="brand-name">SEWA COPY<small>Sejahtera · Service Desk</small></span></a><span>© 2026 PT Sewa Copy Sejahtera · [EDITABLE] Demo website</span></div></footer>
+      <footer className="footer"><div className="page-width footer-inner"><a href="#beranda" className="brand"><BrandMark /><span className="brand-name">SEWA COPY<small>Sejahtera · Service Desk</small></span></a><span>© 2026 PT Sewa Copy Sejahtera · [EDITABLE] Demo website</span></div></footer>
       <a href={waLink()} className="floating-wa" target="_blank" rel="noreferrer" aria-label="Hubungi kami melalui WhatsApp"><MessageCircle size={19} /><span>WhatsApp</span></a>
     </div>
   );

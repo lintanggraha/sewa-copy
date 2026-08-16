@@ -29,4 +29,9 @@
 
 - [x] Memastikan Vercel menggunakan perintah build Vite dan output `dist/public`.
 - [x] Menambahkan konfigurasi static deployment serta fallback SPA yang diperlukan.
-- [ ] Memverifikasi build dan mendorong perbaikan ke GitHub untuk redeploy.
+- [x] Memverifikasi build dan mendorong perbaikan ke GitHub untuk redeploy.
+
+## Perbaikan Logo Vercel — 16 Agustus 2026
+
+- [ ] Mengganti referensi `/manus-storage` logo dengan file static publik.
+- [ ] Memverifikasi header dan footer menampilkan logo setelah redeploy Vercel.
