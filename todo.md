@@ -53,3 +53,9 @@
 - [x] Memadatkan card layanan, katalog unit, paket, estimator, bukti layanan, dan form di section bawah.
 - [x] Menyetarakan padding, min-height, dan jarak action pada semua card agar ritme scroll konsisten.
 - [x] Memeriksa seluruh halaman pada desktop dan mobile sebelum sinkronisasi GitHub.
+
+## Gambar Produk Katalog — 16 Agustus 2026
+
+- [x] Menemukan gambar produk asli untuk Canon iR 2625, Xerox DocuCentre S2320, Fuji Xerox ApeosPort C2560, dan Ricoh MP 3055.
+- [x] Menyimpan asset gambar ke storage statis yang kompatibel dengan Vercel.
+- [ ] Mengganti placeholder katalog dan memverifikasi semua gambar pada deployment publik.

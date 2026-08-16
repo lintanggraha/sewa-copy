@@ -30,8 +30,13 @@ import { useMemo, useState, type FormEvent } from "react";
 
 const ASSET = {
   hero: "/manus-storage/sewa-copy-hero_fd62557d.jpg",
-  machineBw: "/manus-storage/sewa-copy-machine-bw_2b8a3257.jpg",
-  machineColor: "/manus-storage/sewa-copy-machine-color_bc7a78fa.jpg",
+};
+
+const CATALOG_IMAGES: Record<string, string> = {
+  "SC-2625": "/manus-storage/canon-ir-2625_e32ef861.webp",
+  "SC-S2320": "/manus-storage/xerox-s2320_5444a117.jpg",
+  "SC-C2560": "/manus-storage/fuji-apeosport-c2560_a92e37d3.png",
+  "SC-3055": "/manus-storage/ricoh-mp-3055_4ac8e4d9.png",
 };
 
 // [EDITABLE] Replace this number with the approved production WhatsApp Business number before publishing.
@@ -58,13 +63,8 @@ function waLink(message = WHATSAPP_MESSAGE) {
 }
 
 function MachineVisual({ machine }: { machine: Machine }) {
-  if (machine.visual === "bw") {
-    return <img src={ASSET.machineBw} alt={`[EDITABLE] Ilustrasi unit ${machine.name}`} />;
-  }
-  if (machine.visual === "color") {
-    return <img src={ASSET.machineColor} alt={`[EDITABLE] Ilustrasi unit ${machine.name}`} />;
-  }
-  return <div className="machine-sketch" aria-label={`Diagram unit ${machine.name}`} role="img" />;
+  const image = CATALOG_IMAGES[machine.id];
+  return <img src={image} alt={`Foto produk ${machine.name}`} loading="lazy" />;
 }
 
 function BrandMark() {
