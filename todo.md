@@ -65,3 +65,9 @@
 - [x] Menambahkan reveal halus untuk section dan card ketika masuk viewport.
 - [x] Menambahkan hover, active state, serta feedback visual pada tombol, filter, dan card katalog.
 - [x] Menghormati preferensi reduced motion dan memeriksa hasil pada desktop serta mobile.
+
+## Perbaikan Card Paket — 16 Agustus 2026
+
+- [x] Menghapus konflik antara daftar manfaat dan CTA absolut pada tiga card paket.
+- [x] Memastikan tinggi card dan CTA konsisten pada desktop maupun mobile.
+- [x] Memeriksa hasil perbaikan sebelum sinkronisasi GitHub dan Vercel.
