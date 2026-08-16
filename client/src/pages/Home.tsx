@@ -98,6 +98,20 @@ export default function Home() {
     }
 
     document.documentElement.classList.add("motion-ready");
+    let scrollFrame = 0;
+    const updateScrollEffects = () => {
+      scrollFrame = 0;
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+      document.documentElement.style.setProperty("--scroll-progress", String(progress));
+      document.documentElement.style.setProperty("--hero-rail-lift", `${Math.min(window.scrollY * 0.028, 18)}px`);
+    };
+    const requestScrollUpdate = () => {
+      if (!scrollFrame) scrollFrame = window.requestAnimationFrame(updateScrollEffects);
+    };
+    updateScrollEffects();
+    window.addEventListener("scroll", requestScrollUpdate, { passive: true });
+
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -111,6 +125,8 @@ export default function Home() {
     targets.forEach((target) => observer.observe(target));
     return () => {
       observer.disconnect();
+      window.removeEventListener("scroll", requestScrollUpdate);
+      if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
       document.documentElement.classList.remove("motion-ready");
     };
   }, []);
@@ -143,6 +159,7 @@ export default function Home() {
 
   return (
     <div className="site-shell">
+      <div className="scroll-progress" aria-hidden="true" />
       <a href="#konten" className="skip-link">Lewati ke konten</a>
 
       <div className="top-strip">
@@ -183,7 +200,7 @@ export default function Home() {
               <div className="hero-note"><span className="rule" />[EDITABLE] Ganti detail area, layanan, dan nomor WhatsApp sebelum publish.</div>
             </div>
 
-            <div className="hero-rail" aria-label="Alur layanan sewa">
+            <div className="hero-rail" data-scroll-depth="true" aria-label="Alur layanan sewa">
               <div className="rail-head"><span>Jalur layanan</span><span>03 langkah</span></div>
               <div className="rail-step"><span className="rail-index">01</span><div><h3>Ceritakan kebutuhan</h3><p>Durasi, volume cetak, dan lokasi Anda.</p></div><span className="rail-icon"><MessageCircle size={15} /></span></div>
               <div className="rail-step"><span className="rail-index">02</span><div><h3>Pilih unit yang pas</h3><p>Rekomendasi berdasarkan ritme kerja tim.</p></div><span className="rail-icon"><Printer size={15} /></span></div>

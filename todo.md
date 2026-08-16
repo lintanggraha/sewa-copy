@@ -77,3 +77,15 @@
 - [x] Menghapus radius pada section navy horizontal yang berfungsi sebagai strip pembatas.
 - [x] Memastikan card dan komponen lain tetap mempertahankan bentuknya.
 - [x] Memeriksa hasil pada desktop dan mobile.
+
+## Scroll Effect Halus — 16 Agustus 2026
+
+- [ ] Menambahkan scroll progress dan depth cue yang hanya menganimasi opacity serta transform.
+- [ ] Menjaga reveal section tetap bertahap tanpa membuat konten tertunda atau scroll tersendat.
+- [ ] Memastikan reduced-motion tetap mematikan seluruh efek non-esensial dan memeriksa desktop/mobile.
+
+## Ritme Warna Paket Harga — 16 Agustus 2026
+
+- [x] Mengubah latar section Paket Harga dari putih/mist menjadi navy.
+- [x] Menyesuaikan heading, copy, dan card paket agar kontras tetap terjaga.
+- [x] Memeriksa urutan warna section pada desktop serta mobile.
