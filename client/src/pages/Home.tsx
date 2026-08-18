@@ -214,7 +214,7 @@ export default function Home() {
             </div>
             <div>
               <span className="eyebrow">Kenapa memilih kami</span>
-              <h2 id="mengapa-kami" className="section-heading">Keputusan sewa yang lebih terarah.</h2>
+              <h2 id="mengapa-kami" className="section-heading">Semua kebutuhan cetak, cukup dalam satu alur.</h2>
               <div className="value-list">
                 <div className="value-item"><span className="value-number">A</span><div><h3>Rekomendasi berbasis kebutuhan</h3><p>Mulai dari volume cetak, tipe dokumen, hingga durasi penggunaan.</p></div><ChevronRight size={20} /></div>
                 <div className="value-item"><span className="value-number">B</span><div><h3>Biaya operasional lebih terkendali</h3><p>Pilih paket yang membuat pengadaan mesin lebih sederhana untuk dikelola.</p></div><ChevronRight size={20} /></div>
