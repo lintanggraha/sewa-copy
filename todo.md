@@ -95,3 +95,9 @@
 - [x] Menghapus nominal dan label harga pada seluruh card katalog serta paket.
 - [x] Mengganti estimator biaya dengan alur konsultasi kebutuhan tanpa kalkulasi nominal.
 - [x] Memeriksa tampilan dan CTA tanpa harga pada desktop maupun mobile.
+
+## Paket Sementara Disembunyikan — 18 Agustus 2026
+
+- [x] Menyembunyikan section Paket Layanan dan menghapus navigasi Paket untuk sementara.
+- [x] Mengubah section Konsultasi agar ritme warna setelah katalog tetap biru → putih → biru → putih.
+- [x] Memeriksa urutan section serta tautan navigasi pada desktop dan mobile.

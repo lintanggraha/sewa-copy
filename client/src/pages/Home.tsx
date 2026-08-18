@@ -2,11 +2,10 @@
  * Service Ledger page: operational editorial language, paper-white work surfaces,
  * ink-navy structure, and signal-orange reserved for high-intent actions.
  */
-import { machines, plans, type Machine } from "@/data/machines";
+import { machines, type Machine } from "@/data/machines";
 import {
   ArrowRight,
   Building2,
-  Check,
   ChevronRight,
   CircleCheck,
   Clock3,
@@ -45,7 +44,6 @@ const WHATSAPP_MESSAGE = "Halo PT Sewa Copy Sejahtera, saya ingin mengajukan pen
 const navItems = [
   ["Layanan", "#layanan"],
   ["Katalog", "#katalog"],
-  ["Paket", "#paket"],
   ["Kontak", "#kontak"],
 ] as const;
 
@@ -250,18 +248,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="paket" className="pricing-section" aria-labelledby="paket-title">
-          <div className="page-width">
-            <div className="pricing-head" data-reveal="true"><div><span className="eyebrow">Paket layanan [editable]</span><h2 id="paket-title" className="section-heading">Paket jelas untuk memulai, ruang fleksibel untuk berkembang.</h2></div><p className="section-copy">Pilih paket awal, lalu konsultasikan komposisi unit, volume, dan layanan yang paling sesuai.</p></div>
-            <div className="pricing-grid">
-              {plans.map((plan) => <article className={`plan-card ${plan.emphasis ? "featured" : ""}`} key={plan.name} data-reveal="true"><span className="plan-label">{plan.label}</span><h3>{plan.name}</h3><p className="plan-intro">Susun unit dan layanan sesuai ritme operasional Anda.</p><p className="plan-duration">{plan.duration}</p><ul className="plan-list">{plan.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul><a className="plan-action" href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi mengenai paket ${plan.name}.`)} target="_blank" rel="noreferrer">Konsultasikan paket <ArrowRight size={18} /></a></article>)}
-            </div>
-          </div>
-        </section>
-
         <section className="calculator-section" aria-labelledby="calc-title">
           <div className="page-width calculator-grid">
-            <div data-reveal="true"><span className="eyebrow">Konsultasi cepat</span><h2 id="calc-title" className="section-heading">Susun kebutuhan sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Tim kami akan menyiapkan rekomendasi yang sesuai dengan kebutuhan operasional Anda.</p><p className="calc-note"><MessageCircle size={15} />Rekomendasi akhir disusun setelah kami memahami volume dan alur kerja tim Anda.</p></div>
+            <div data-reveal="true"><span className="eyebrow light">Konsultasi cepat</span><h2 id="calc-title" className="section-heading">Susun kebutuhan sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Tim kami akan menyiapkan rekomendasi yang sesuai dengan kebutuhan operasional Anda.</p><p className="calc-note"><MessageCircle size={15} />Rekomendasi akhir disusun setelah kami memahami volume dan alur kerja tim Anda.</p></div>
             <div className="calc-panel" data-reveal="true"><div className="calc-panel-head"><h3>Rencana kebutuhan</h3><span>SESUAI KEBUTUHAN</span></div><div className="calc-controls"><div className="control"><label htmlFor="unit-count">Jumlah unit</label><input id="unit-count" type="number" min="1" max="20" value={units} onChange={(event) => setUnits(Math.max(1, Number(event.target.value)))} /></div><div className="control"><label htmlFor="months">Durasi sewa</label><input id="months" type="number" min="1" max="36" value={duration} onChange={(event) => setDuration(Math.max(1, Number(event.target.value)))} /></div><div className="control full"><label htmlFor="machine-type">Tipe mesin</label><select id="machine-type" value={machineType} onChange={(event) => setMachineType(event.target.value as "B/W" | "Warna")}><option value="B/W">B/W</option><option value="Warna">Warna</option></select></div></div><p className="consult-note">Sampaikan kebutuhan volume cetak dan lokasi agar tim kami dapat menyiapkan paket yang tepat.</p><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi untuk ${units} unit tipe ${machineType} selama ${duration} bulan.`)} target="_blank" rel="noreferrer" className="button-primary">Konsultasikan kebutuhan <ArrowRight size={17} /></a></div>
           </div>
         </section>

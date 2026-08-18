@@ -194,6 +194,11 @@ a { color: inherit; text-decoration: none; }
 .calc-panel .button-primary { width: 100%; margin-top: 19px; }
 .consult-note { margin: 19px 0 0; padding: 14px 16px; color: #527086; border-left: 3px solid var(--orange); background: var(--mist); font-size: 13px; line-height: 1.35; }
 
+/* Service Ledger alternation: catalog white → consultation navy → proof white → contact navy. */
+.calculator-section { color: #fff; background: #12395f; }
+.calculator-section .section-heading { color: #fff; }
+.calculator-section .section-copy { color: #bdd1df; }
+
 .proof-section { padding: 89px 0; background: #fff; }
 .proof-grid { display: grid; grid-template-columns: .83fr 1.17fr; gap: 74px; align-items: center; }
 .proof-card { position: relative; padding: 25px 26px 24px; border: 1px dashed #a8c4d4; background: #fbfdfe; }
