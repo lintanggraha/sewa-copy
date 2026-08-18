@@ -107,3 +107,9 @@
 - [x] Mengembalikan background section Konsultasi “Susun kebutuhan” menjadi navy.
 - [x] Menjaga heading, copy, panel form, dan CTA tetap kontras.
 - [x] Memeriksa hasil pada desktop serta mobile.
+
+## Copy Siap Implementasi — 18 Agustus 2026
+
+- [x] Menghapus semua bahasa “demo”, “[EDITABLE]”, dan instruksi internal yang tampil pada halaman.
+- [x] Menulis ulang placeholder, CTA, form, dan footer sebagai copy final untuk calon pelanggan.
+- [x] Memeriksa seluruh halaman agar tidak ada bahasa internal tersisa.

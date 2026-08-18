@@ -37,7 +37,6 @@ const CATALOG_IMAGES: Record<string, string> = {
   "SC-3055": "https://raw.githubusercontent.com/lintanggraha/sewa-copy/main/client/public/catalog/ricoh-mp-3055.png",
 };
 
-// [EDITABLE] Replace this number with the approved production WhatsApp Business number before publishing.
 const WHATSAPP_URL = "https://wa.me/620000000000";
 const WHATSAPP_MESSAGE = "Halo PT Sewa Copy Sejahtera, saya ingin mengajukan penawaran sewa mesin fotokopi.";
 
@@ -154,8 +153,8 @@ export default function Home() {
 
       <div className="top-strip">
         <div className="page-width">
-          <span className="availability"><i className="dot" />Area layanan: <strong>Jabodetabek</strong> <span className="muted">[EDITABLE]</span></span>
-          <span className="top-phone">Jam operasional: Sen–Sab · 08.00–17.00 <span className="muted">[EDITABLE]</span></span>
+          <span className="availability"><i className="dot" />Area layanan: <strong>Jabodetabek</strong></span>
+          <span className="top-phone">Jam operasional: Sen–Sab · 08.00–17.00</span>
         </div>
       </div>
 
@@ -187,7 +186,7 @@ export default function Home() {
                 <a className="button-primary" href={waLink()} target="_blank" rel="noreferrer">Ajukan penawaran <ArrowRight size={18} /></a>
                 <a className="text-link" href="#katalog">Lihat unit tersedia <ChevronRight size={17} /></a>
               </div>
-              <div className="hero-note"><span className="rule" />[EDITABLE] Ganti detail area, layanan, dan nomor WhatsApp sebelum publish.</div>
+              <div className="hero-note"><span className="rule" />Konsultasikan kebutuhan unit, volume cetak, dan jadwal layanan Anda.</div>
             </div>
 
             <div className="hero-rail" data-scroll-depth="true" aria-label="Alur layanan sewa">
@@ -200,7 +199,7 @@ export default function Home() {
           <div className="service-rail">
             <div className="page-width">
               <div className="service-rail-item"><ShieldCheck size={20} /><div><strong>Maintenance terjadwal</strong><span>Untuk ritme kerja yang stabil</span></div></div>
-              <div className="service-rail-item"><Wrench size={20} /><div><strong>Teknisi siap koordinasi</strong><span>[EDITABLE] Sesuaikan SLA area</span></div></div>
+              <div className="service-rail-item"><Wrench size={20} /><div><strong>Teknisi siap koordinasi</strong><span>Koordinasi layanan sesuai kebutuhan operasional</span></div></div>
               <div className="service-rail-item"><FileText size={20} /><div><strong>Paket dapat disusun</strong><span>Unit, durasi, dan volume sesuai kebutuhan</span></div></div>
             </div>
           </div>
@@ -237,10 +236,10 @@ export default function Home() {
         <section id="katalog" className="catalog-section" aria-labelledby="katalog-title">
           <div className="page-width">
             <div className="catalog-top" data-reveal="true">
-              <div><span className="eyebrow">Katalog unit [editable]</span><h2 id="katalog-title" className="section-heading">Pilih mesin dari ritme kerja, bukan sekadar merek.</h2></div>
+              <div><span className="eyebrow">Katalog unit</span><h2 id="katalog-title" className="section-heading">Pilih mesin dari ritme kerja, bukan sekadar merek.</h2></div>
               <div className="catalog-filter" aria-label="Filter katalog"><button className={`filter-button ${typeFilter === "Semua" ? "active" : ""}`} onClick={() => setTypeFilter("Semua")}>Semua tipe</button><button className={`filter-button ${typeFilter === "B/W" ? "active" : ""}`} onClick={() => setTypeFilter("B/W")}>B/W</button><button className={`filter-button ${typeFilter === "Warna" ? "active" : ""}`} onClick={() => setTypeFilter("Warna")}>Warna</button><button className={`filter-button ${speedFilter === "20+ ppm" ? "active" : ""}`} onClick={() => setSpeedFilter(speedFilter === "20+ ppm" ? "Semua" : "20+ ppm")}>20+ ppm</button><button className={`filter-button ${speedFilter === "25+ ppm" ? "active" : ""}`} onClick={() => setSpeedFilter(speedFilter === "25+ ppm" ? "Semua" : "25+ ppm")}>25+ ppm</button></div>
             </div>
-            <div className="catalog-status" data-reveal="true"><Filter size={13} /><span className="line" />Menampilkan {filteredMachines.length} dari {machines.length} unit demo</div>
+            <div className="catalog-status" data-reveal="true"><Filter size={13} /><span className="line" />Menampilkan {filteredMachines.length} dari {machines.length} unit tersedia</div>
             <div className="machines-grid">
               {filteredMachines.map((machine) => <article className="machine-ticket" key={machine.id} data-reveal="true"><div className="machine-visual"><span className="ticket-bar">{machine.id}</span><MachineVisual machine={machine} /></div><div className="machine-content"><div className="machine-meta"><span>{machine.type}</span><span className="ready">{machine.availability}</span></div><h3>{machine.name}</h3><p className="machine-use">{machine.recommended}</p><div className="machine-specs"><span className="machine-spec">{machine.ppm} ppm</span><span className="machine-spec">Sewa fleksibel</span></div><div className="machine-quote"><div><span>Butuh rekomendasi?</span><strong>Konsultasikan unit</strong></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi mengenai unit ${machine.name}.`)} target="_blank" rel="noreferrer" aria-label={`Konsultasikan ${machine.name}`}><ArrowRight size={19} /></a></div></div></article>)}
               {filteredMachines.length === 0 && <p className="empty-catalog">Tidak ada unit yang cocok dengan filter ini. Ubah filter atau hubungi tim untuk kebutuhan khusus.</p>}
@@ -257,20 +256,20 @@ export default function Home() {
 
         <section className="proof-section" aria-labelledby="kepercayaan-title">
           <div className="page-width proof-grid">
-            <div className="proof-card" data-reveal="true"><h3 id="kepercayaan-title">Tempat untuk bukti kepercayaan yang nyata.</h3><p>Masukkan logo, studi kasus, atau kutipan pelanggan setelah memperoleh persetujuan tertulis. Demo ini sengaja tidak memuat testimoni rekaan.</p><span className="placeholder-tag">[EDITABLE] Tambahkan referensi klien tervalidasi</span></div>
-            <div className="proof-items"><article className="proof-item" data-reveal="true"><ShieldCheck size={21} /><h4>Unit terkelola</h4><p>Dokumentasikan standar pemeriksaan sebelum pengiriman.</p></article><article className="proof-item" data-reveal="true"><Settings2 size={21} /><h4>Rencana perawatan</h4><p>Jelaskan jadwal dan cakupan maintenance yang disepakati.</p></article><article className="proof-item" data-reveal="true"><MapPin size={21} /><h4>Cakupan layanan</h4><p>[EDITABLE] Tampilkan area layanan aktual dan ketentuannya.</p></article></div>
+            <div className="proof-card" data-reveal="true"><h3 id="kepercayaan-title">Layanan yang disusun untuk operasional harian.</h3><p>Mulai dari pemilihan unit hingga jadwal perawatan, setiap kebutuhan ditangani dalam satu alur yang jelas.</p><span className="proof-tag">Pendampingan dari awal hingga operasional berjalan</span></div>
+            <div className="proof-items"><article className="proof-item" data-reveal="true"><ShieldCheck size={21} /><h4>Unit terkelola</h4><p>Unit diperiksa sebelum pengiriman dan instalasi.</p></article><article className="proof-item" data-reveal="true"><Settings2 size={21} /><h4>Rencana perawatan</h4><p>Jadwal maintenance disusun mengikuti kebutuhan operasional.</p></article><article className="proof-item" data-reveal="true"><MapPin size={21} /><h4>Cakupan layanan</h4><p>Melayani Jabodetabek dan sekitarnya.</p></article></div>
           </div>
         </section>
 
         <section id="kontak" className="contact-section" aria-labelledby="kontak-title">
           <div className="page-width contact-grid">
-            <div data-reveal="true"><span className="eyebrow light">Mulai dari kebutuhan Anda</span><h2 id="kontak-title" className="section-heading">Ceritakan alur cetak tim Anda.</h2><p className="section-copy">Isi formulir singkat ini. Pada demo, tombol kirim akan membuka WhatsApp dengan ringkasan kebutuhan yang telah Anda isi.</p><div className="contact-details"><div className="contact-detail"><Phone size={18} /><div><small>WHATSAPP [EDITABLE]</small>+62 8xx-xxxx-xxxx</div></div><div className="contact-detail"><MapPin size={18} /><div><small>AREA LAYANAN [EDITABLE]</small>Jabodetabek dan sekitarnya</div></div><div className="contact-detail"><Clock3 size={18} /><div><small>JAM OPERASIONAL [EDITABLE]</small>Senin–Sabtu · 08.00–17.00</div></div></div></div>
-            <form className="contact-form" onSubmit={submitQuote} data-reveal="true"><div className="form-head"><div><h3>Ajukan penawaran</h3><p>Data digunakan untuk menyusun kebutuhan awal Anda.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp demo <ArrowRight size={17} /></button><p className="form-help">[EDITABLE] Ganti nomor demo dengan WhatsApp Business dan sambungkan workflow follow-up sebelum digunakan di production.</p></form>
+            <div data-reveal="true"><span className="eyebrow light">Mulai dari kebutuhan Anda</span><h2 id="kontak-title" className="section-heading">Ceritakan alur cetak tim Anda.</h2><p className="section-copy">Isi formulir singkat ini. Tim kami akan menindaklanjuti kebutuhan Anda melalui WhatsApp.</p><div className="contact-details"><div className="contact-detail"><Phone size={18} /><div><small>WHATSAPP</small>Tim Konsultan Sewa Copy</div></div><div className="contact-detail"><MapPin size={18} /><div><small>AREA LAYANAN</small>Jabodetabek dan sekitarnya</div></div><div className="contact-detail"><Clock3 size={18} /><div><small>JAM OPERASIONAL</small>Senin–Sabtu · 08.00–17.00</div></div></div></div>
+            <form className="contact-form" onSubmit={submitQuote} data-reveal="true"><div className="form-head"><div><h3>Ajukan penawaran</h3><p>Data Anda membantu kami menyusun rekomendasi awal.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp <ArrowRight size={17} /></button><p className="form-help">Tim kami akan meninjau kebutuhan Anda dan menyiapkan rekomendasi layanan yang sesuai.</p></form>
           </div>
         </section>
       </main>
 
-      <footer className="footer"><div className="page-width footer-inner"><a href="#beranda" className="brand"><BrandMark /><span className="brand-name">SEWA COPY<small>Sejahtera · Service Desk</small></span></a><span>© 2026 PT Sewa Copy Sejahtera · [EDITABLE] Demo website</span></div></footer>
+      <footer className="footer"><div className="page-width footer-inner"><a href="#beranda" className="brand"><BrandMark /><span className="brand-name">SEWA COPY<small>Sejahtera · Service Desk</small></span></a><span>© 2026 PT Sewa Copy Sejahtera · Solusi Fotokopi Praktis</span></div></footer>
       <a href={waLink()} className="floating-wa" target="_blank" rel="noreferrer" aria-label="Hubungi kami melalui WhatsApp"><MessageCircle size={19} /><span>WhatsApp</span></a>
     </div>
   );

@@ -1,6 +1,6 @@
 /**
  * Design context: Service Ledger uses operational machine tickets, not generic product cards.
- * [EDITABLE] Replace names, specifications, and available quantities with approved client data.
+ * Catalog data for the public machine selection experience.
  */
 export type Machine = {
   id: string;
