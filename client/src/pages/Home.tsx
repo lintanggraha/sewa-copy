@@ -167,7 +167,6 @@ export default function Home() {
           <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Navigasi utama">
             {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
           </nav>
-          <a className="nav-cta" href={waLink()} target="_blank" rel="noreferrer">Konsultasikan kebutuhanmu <ArrowRight size={16} /></a>
           <button className="menu-toggle" aria-label={menuOpen ? "Tutup navigasi" : "Buka navigasi"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
