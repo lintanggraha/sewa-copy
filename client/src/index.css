@@ -143,10 +143,10 @@ a { color: inherit; text-decoration: none; }
 .machine-use { min-height: 35px; margin: 7px 0 15px; color: #628097; font-size: 14px; line-height: 1.25; }
 .machine-specs { display: flex; gap: 7px; margin-top: auto; }
 .machine-spec { padding: 7px 8px; color: #456a81; border: 1px solid var(--line); font: 500 9px var(--mono); }
-.machine-price { display: flex; align-items: end; justify-content: space-between; gap: 7px; padding-top: 17px; border-top: 1px dashed #c6d9e4; }
-.machine-price span { display: block; color: #7890a1; font: 500 9px var(--mono); letter-spacing: .04em; }
-.machine-price strong { display: block; margin-top: 3px; color: var(--ink); font: 800 18px/1 var(--display); letter-spacing: -.055em; }
-.machine-price a { color: var(--orange); }
+.machine-quote { display: flex; align-items: end; justify-content: space-between; gap: 7px; padding-top: 17px; border-top: 1px dashed #c6d9e4; }
+.machine-quote span { display: block; color: #7890a1; font: 500 9px var(--mono); letter-spacing: .04em; }
+.machine-quote strong { display: block; margin-top: 3px; color: var(--ink); font: 800 17px/1 var(--display); letter-spacing: -.055em; }
+.machine-quote a { color: var(--orange); }
 .empty-catalog { grid-column: 1 / -1; padding: 40px; text-align: center; color: #678095; border: 1px dashed var(--line); }
 
 .pricing-section { padding: 110px 0; background: var(--mist); }
@@ -158,12 +158,9 @@ a { color: inherit; text-decoration: none; }
 .plan-card.featured .plan-label { color: #bcd8e9; }
 .plan-card h3 { margin: 11px 0 0; color: var(--ink); font: 800 29px/1 var(--display); letter-spacing: -.06em; }
 .plan-card.featured h3 { color: #fff; }
-.plan-price { display: flex; align-items: baseline; gap: 6px; margin-top: 33px; }
-.plan-price strong { color: var(--ink); font: 800 clamp(33px, 3vw, 46px)/1 var(--display); letter-spacing: -.08em; }
-.plan-price span { color: #668198; font-size: 13px; }
-.plan-card.featured .plan-price strong { color: #ffab6e; }
-.plan-card.featured .plan-price span { color: #bed5e3; }
-.plan-duration { margin: 9px 0 23px; color: #678095; font: 500 10px var(--mono); }
+.plan-intro { margin: 22px 0 0; color: #668198; font-size: 14px; line-height: 1.35; }
+.plan-card.featured .plan-intro { color: #bed5e3; }
+.plan-duration { margin: 10px 0 23px; color: #678095; font: 500 10px var(--mono); }
 .plan-card.featured .plan-duration { color: #b8d0df; }
 .plan-list { display: grid; gap: 13px; padding: 19px 0 0; border-top: 1px solid var(--line); }
 .plan-card.featured .plan-list { border-color: #467091; }
@@ -195,6 +192,7 @@ a { color: inherit; text-decoration: none; }
 .calc-result strong { display: block; margin-top: 6px; color: var(--ink); font: 800 31px/1 var(--display); letter-spacing: -.065em; }
 .calc-result .result-note { max-width: 145px; color: #5b7789; font-size: 12px; line-height: 1.25; text-align: right; }
 .calc-panel .button-primary { width: 100%; margin-top: 19px; }
+.consult-note { margin: 19px 0 0; padding: 14px 16px; color: #527086; border-left: 3px solid var(--orange); background: var(--mist); font-size: 13px; line-height: 1.35; }
 
 .proof-section { padding: 89px 0; background: #fff; }
 .proof-grid { display: grid; grid-template-columns: .83fr 1.17fr; gap: 74px; align-items: center; }

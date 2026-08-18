@@ -6,7 +6,6 @@ import { machines, plans, type Machine } from "@/data/machines";
 import {
   ArrowRight,
   Building2,
-  Calculator,
   Check,
   ChevronRight,
   CircleCheck,
@@ -42,7 +41,6 @@ const CATALOG_IMAGES: Record<string, string> = {
 // [EDITABLE] Replace this number with the approved production WhatsApp Business number before publishing.
 const WHATSAPP_URL = "https://wa.me/620000000000";
 const WHATSAPP_MESSAGE = "Halo PT Sewa Copy Sejahtera, saya ingin mengajukan penawaran sewa mesin fotokopi.";
-const formatIDR = (amount: number) => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", maximumFractionDigits: 0 }).format(amount);
 
 const navItems = [
   ["Layanan", "#layanan"],
@@ -136,12 +134,6 @@ export default function Home() {
     const minPpm = speedFilter === "20+ ppm" ? 20 : speedFilter === "25+ ppm" ? 25 : 0;
     return passesType && machine.ppm >= minPpm;
   }), [typeFilter, speedFilter]);
-
-  const estimate = useMemo(() => {
-    const base = machineType === "Warna" ? 1500000 : 750000;
-    const volumeDiscount = duration >= 12 ? 0.9 : duration >= 6 ? 0.95 : 1;
-    return Math.round(base * Math.max(1, units) * Math.max(1, duration) * volumeDiscount / 10000) * 10000;
-  }, [duration, machineType, units]);
 
   const submitQuote = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -252,7 +244,7 @@ export default function Home() {
             </div>
             <div className="catalog-status" data-reveal="true"><Filter size={13} /><span className="line" />Menampilkan {filteredMachines.length} dari {machines.length} unit demo</div>
             <div className="machines-grid">
-              {filteredMachines.map((machine) => <article className="machine-ticket" key={machine.id} data-reveal="true"><div className="machine-visual"><span className="ticket-bar">{machine.id}</span><MachineVisual machine={machine} /></div><div className="machine-content"><div className="machine-meta"><span>{machine.type}</span><span className="ready">{machine.availability}</span></div><h3>{machine.name}</h3><p className="machine-use">{machine.recommended}</p><div className="machine-specs"><span className="machine-spec">{machine.ppm} ppm</span><span className="machine-spec">Sewa fleksibel</span></div><div className="machine-price"><div><span>Mulai dari</span><strong>{formatIDR(machine.price)}<small>/bln</small></strong></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin menanyakan unit ${machine.name}.`)} target="_blank" rel="noreferrer" aria-label={`Tanyakan ${machine.name}`}><ArrowRight size={19} /></a></div></div></article>)}
+              {filteredMachines.map((machine) => <article className="machine-ticket" key={machine.id} data-reveal="true"><div className="machine-visual"><span className="ticket-bar">{machine.id}</span><MachineVisual machine={machine} /></div><div className="machine-content"><div className="machine-meta"><span>{machine.type}</span><span className="ready">{machine.availability}</span></div><h3>{machine.name}</h3><p className="machine-use">{machine.recommended}</p><div className="machine-specs"><span className="machine-spec">{machine.ppm} ppm</span><span className="machine-spec">Sewa fleksibel</span></div><div className="machine-quote"><div><span>Butuh rekomendasi?</span><strong>Konsultasikan unit</strong></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi mengenai unit ${machine.name}.`)} target="_blank" rel="noreferrer" aria-label={`Konsultasikan ${machine.name}`}><ArrowRight size={19} /></a></div></div></article>)}
               {filteredMachines.length === 0 && <p className="empty-catalog">Tidak ada unit yang cocok dengan filter ini. Ubah filter atau hubungi tim untuk kebutuhan khusus.</p>}
             </div>
           </div>
@@ -260,17 +252,17 @@ export default function Home() {
 
         <section id="paket" className="pricing-section" aria-labelledby="paket-title">
           <div className="page-width">
-            <div className="pricing-head" data-reveal="true"><div><span className="eyebrow">Paket harga [editable]</span><h2 id="paket-title" className="section-heading">Paket jelas untuk memulai, ruang fleksibel untuk berkembang.</h2></div><p className="section-copy">Harga bersifat ilustratif untuk kebutuhan demo. Hubungi sales untuk komposisi unit dan volume yang lebih spesifik.</p></div>
+            <div className="pricing-head" data-reveal="true"><div><span className="eyebrow">Paket layanan [editable]</span><h2 id="paket-title" className="section-heading">Paket jelas untuk memulai, ruang fleksibel untuk berkembang.</h2></div><p className="section-copy">Pilih paket awal, lalu konsultasikan komposisi unit, volume, dan layanan yang paling sesuai.</p></div>
             <div className="pricing-grid">
-              {plans.map((plan) => <article className={`plan-card ${plan.emphasis ? "featured" : ""}`} key={plan.name} data-reveal="true"><span className="plan-label">{plan.label}</span><h3>{plan.name}</h3><div className="plan-price"><strong>{plan.price}</strong><span>{plan.suffix}</span></div><p className="plan-duration">{plan.duration}</p><ul className="plan-list">{plan.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul><a className="plan-action" href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengetahui paket ${plan.name}.`)} target="_blank" rel="noreferrer">Tanyakan paket <ArrowRight size={18} /></a></article>)}
+              {plans.map((plan) => <article className={`plan-card ${plan.emphasis ? "featured" : ""}`} key={plan.name} data-reveal="true"><span className="plan-label">{plan.label}</span><h3>{plan.name}</h3><p className="plan-intro">Susun unit dan layanan sesuai ritme operasional Anda.</p><p className="plan-duration">{plan.duration}</p><ul className="plan-list">{plan.items.map((item) => <li key={item}><Check size={15} />{item}</li>)}</ul><a className="plan-action" href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi mengenai paket ${plan.name}.`)} target="_blank" rel="noreferrer">Konsultasikan paket <ArrowRight size={18} /></a></article>)}
             </div>
           </div>
         </section>
 
         <section className="calculator-section" aria-labelledby="calc-title">
           <div className="page-width calculator-grid">
-            <div data-reveal="true"><span className="eyebrow light">Estimator cepat</span><h2 id="calc-title" className="section-heading">Dapatkan gambaran biaya sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Angka berikut adalah estimasi awal, bukan penawaran final.</p><p className="calc-note"><Calculator size={15} />Diskon ilustratif akan diterapkan pada durasi 6 dan 12 bulan.</p></div>
-            <div className="calc-panel" data-reveal="true"><div className="calc-panel-head"><h3>Estimator sewa</h3><span>VERSI DEMO</span></div><div className="calc-controls"><div className="control"><label htmlFor="unit-count">Jumlah unit</label><input id="unit-count" type="number" min="1" max="20" value={units} onChange={(event) => setUnits(Math.max(1, Number(event.target.value)))} /></div><div className="control"><label htmlFor="months">Durasi sewa</label><input id="months" type="number" min="1" max="36" value={duration} onChange={(event) => setDuration(Math.max(1, Number(event.target.value)))} /></div><div className="control full"><label htmlFor="machine-type">Tipe mesin</label><select id="machine-type" value={machineType} onChange={(event) => setMachineType(event.target.value as "B/W" | "Warna")}><option value="B/W">B/W — mulai Rp750.000 / unit / bulan</option><option value="Warna">Warna — mulai Rp1.500.000 / unit / bulan</option></select></div></div><div className="calc-result"><div><span>Estimasi masa sewa</span><strong>{formatIDR(estimate)}</strong></div><p className="result-note">Belum termasuk kebutuhan volume cetak atau konfigurasi khusus.</p></div><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin mengonfirmasi estimasi ${units} unit tipe ${machineType} untuk ${duration} bulan.`)} target="_blank" rel="noreferrer" className="button-primary">Minta penawaran yang sesuai <ArrowRight size={17} /></a></div>
+            <div data-reveal="true"><span className="eyebrow">Konsultasi cepat</span><h2 id="calc-title" className="section-heading">Susun kebutuhan sebelum bicara dengan sales.</h2><p className="section-copy">Pilih jumlah unit, tipe, dan durasi. Tim kami akan menyiapkan rekomendasi yang sesuai dengan kebutuhan operasional Anda.</p><p className="calc-note"><MessageCircle size={15} />Rekomendasi akhir disusun setelah kami memahami volume dan alur kerja tim Anda.</p></div>
+            <div className="calc-panel" data-reveal="true"><div className="calc-panel-head"><h3>Rencana kebutuhan</h3><span>SESUAI KEBUTUHAN</span></div><div className="calc-controls"><div className="control"><label htmlFor="unit-count">Jumlah unit</label><input id="unit-count" type="number" min="1" max="20" value={units} onChange={(event) => setUnits(Math.max(1, Number(event.target.value)))} /></div><div className="control"><label htmlFor="months">Durasi sewa</label><input id="months" type="number" min="1" max="36" value={duration} onChange={(event) => setDuration(Math.max(1, Number(event.target.value)))} /></div><div className="control full"><label htmlFor="machine-type">Tipe mesin</label><select id="machine-type" value={machineType} onChange={(event) => setMachineType(event.target.value as "B/W" | "Warna")}><option value="B/W">B/W</option><option value="Warna">Warna</option></select></div></div><p className="consult-note">Sampaikan kebutuhan volume cetak dan lokasi agar tim kami dapat menyiapkan paket yang tepat.</p><a href={waLink(`Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi untuk ${units} unit tipe ${machineType} selama ${duration} bulan.`)} target="_blank" rel="noreferrer" className="button-primary">Konsultasikan kebutuhan <ArrowRight size={17} /></a></div>
           </div>
         </section>
 

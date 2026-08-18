@@ -80,12 +80,18 @@
 
 ## Scroll Effect Halus — 16 Agustus 2026
 
-- [ ] Menambahkan scroll progress dan depth cue yang hanya menganimasi opacity serta transform.
-- [ ] Menjaga reveal section tetap bertahap tanpa membuat konten tertunda atau scroll tersendat.
-- [ ] Memastikan reduced-motion tetap mematikan seluruh efek non-esensial dan memeriksa desktop/mobile.
+- [x] Menambahkan scroll progress dan depth cue yang hanya menganimasi opacity serta transform.
+- [x] Menjaga reveal section tetap bertahap tanpa membuat konten tertunda atau scroll tersendat.
+- [x] Memastikan reduced-motion tetap mematikan seluruh efek non-esensial dan memeriksa desktop/mobile.
 
 ## Ritme Warna Paket Harga — 16 Agustus 2026
 
 - [x] Mengubah latar section Paket Harga dari putih/mist menjadi navy.
 - [x] Menyesuaikan heading, copy, dan card paket agar kontras tetap terjaga.
 - [x] Memeriksa urutan warna section pada desktop serta mobile.
+
+## Penghapusan Harga — 16 Agustus 2026
+
+- [x] Menghapus nominal dan label harga pada seluruh card katalog serta paket.
+- [x] Mengganti estimator biaya dengan alur konsultasi kebutuhan tanpa kalkulasi nominal.
+- [x] Memeriksa tampilan dan CTA tanpa harga pada desktop maupun mobile.
