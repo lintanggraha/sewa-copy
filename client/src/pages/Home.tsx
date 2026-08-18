@@ -38,7 +38,7 @@ const CATALOG_IMAGES: Record<string, string> = {
 };
 
 const WHATSAPP_URL = "https://wa.me/620000000000";
-const WHATSAPP_MESSAGE = "Halo PT Sewa Copy Sejahtera, saya ingin mengajukan penawaran sewa mesin fotokopi.";
+const WHATSAPP_MESSAGE = "Halo PT Sewa Copy Sejahtera, saya ingin berkonsultasi mengenai kebutuhan sewa mesin fotokopi.";
 
 const navItems = [
   ["Layanan", "#layanan"],
@@ -167,7 +167,7 @@ export default function Home() {
           <nav className={`nav-links ${menuOpen ? "open" : ""}`} aria-label="Navigasi utama">
             {navItems.map(([label, href]) => <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
           </nav>
-          <a className="nav-cta" href={waLink()} target="_blank" rel="noreferrer">Ajukan penawaran <ArrowRight size={16} /></a>
+          <a className="nav-cta" href={waLink()} target="_blank" rel="noreferrer">Konsultasikan kebutuhanmu <ArrowRight size={16} /></a>
           <button className="menu-toggle" aria-label={menuOpen ? "Tutup navigasi" : "Buka navigasi"} aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
@@ -183,7 +183,7 @@ export default function Home() {
               <h1>Mesin siap pakai.<br />Operasional tetap <span className="accent">bergerak.</span></h1>
               <p>Sewa mesin fotokopi untuk kantor, sekolah, dan event. Pilih unit yang tepat, lalu biarkan tim Anda fokus pada pekerjaan yang lebih penting.</p>
               <div className="hero-actions">
-                <a className="button-primary" href={waLink()} target="_blank" rel="noreferrer">Ajukan penawaran <ArrowRight size={18} /></a>
+                <a className="button-primary" href={waLink()} target="_blank" rel="noreferrer">Konsultasikan kebutuhanmu <ArrowRight size={18} /></a>
                 <a className="text-link" href="#katalog">Lihat unit tersedia <ChevronRight size={17} /></a>
               </div>
               <div className="hero-note"><span className="rule" />Konsultasikan kebutuhan unit, volume cetak, dan jadwal layanan Anda.</div>
@@ -264,7 +264,7 @@ export default function Home() {
         <section id="kontak" className="contact-section" aria-labelledby="kontak-title">
           <div className="page-width contact-grid">
             <div data-reveal="true"><span className="eyebrow light">Mulai dari kebutuhan Anda</span><h2 id="kontak-title" className="section-heading">Ceritakan alur cetak tim Anda.</h2><p className="section-copy">Isi formulir singkat ini. Tim kami akan menindaklanjuti kebutuhan Anda melalui WhatsApp.</p><div className="contact-details"><div className="contact-detail"><Phone size={18} /><div><small>WHATSAPP</small>Tim Konsultan Sewa Copy</div></div><div className="contact-detail"><MapPin size={18} /><div><small>AREA LAYANAN</small>Jabodetabek dan sekitarnya</div></div><div className="contact-detail"><Clock3 size={18} /><div><small>JAM OPERASIONAL</small>Senin–Sabtu · 08.00–17.00</div></div></div></div>
-            <form className="contact-form" onSubmit={submitQuote} data-reveal="true"><div className="form-head"><div><h3>Ajukan penawaran</h3><p>Data Anda membantu kami menyusun rekomendasi awal.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp <ArrowRight size={17} /></button><p className="form-help">Tim kami akan meninjau kebutuhan Anda dan menyiapkan rekomendasi layanan yang sesuai.</p></form>
+            <form className="contact-form" onSubmit={submitQuote} data-reveal="true"><div className="form-head"><div><h3>Konsultasikan kebutuhanmu</h3><p>Data Anda membantu kami menyusun rekomendasi awal.</p></div><Send size={20} color="#F47A2A" /></div><div className="form-grid"><div className="form-field"><label htmlFor="name">Nama</label><input id="name" name="name" required placeholder="Nama Anda" /></div><div className="form-field"><label htmlFor="company">Perusahaan</label><input id="company" name="company" placeholder="Nama perusahaan / instansi" /></div><div className="form-field"><label htmlFor="phone">No. HP</label><input id="phone" name="phone" required type="tel" placeholder="08xx-xxxx-xxxx" /></div><div className="form-field"><label htmlFor="quote-duration">Durasi sewa</label><select id="quote-duration" name="duration" defaultValue="1 bulan"><option>Harian / event</option><option>1 bulan</option><option>6 bulan</option><option>12 bulan atau lebih</option></select></div><div className="form-field full"><label htmlFor="need">Kebutuhan</label><textarea id="need" name="need" placeholder="Contoh: 2 unit B/W untuk administrasi, perkiraan 7.000 lembar/bulan." /></div></div><button className="button-primary form-submit" type="submit">Kirim ke WhatsApp <ArrowRight size={17} /></button><p className="form-help">Tim kami akan meninjau kebutuhan Anda dan menyiapkan rekomendasi layanan yang sesuai.</p></form>
           </div>
         </section>
       </main>
