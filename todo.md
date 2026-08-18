@@ -101,3 +101,9 @@
 - [x] Menyembunyikan section Paket Layanan dan menghapus navigasi Paket untuk sementara.
 - [x] Mengubah section Konsultasi agar ritme warna setelah katalog tetap biru → putih → biru → putih.
 - [x] Memeriksa urutan section serta tautan navigasi pada desktop dan mobile.
+
+## Konsultasi Navy — 18 Agustus 2026
+
+- [x] Mengembalikan background section Konsultasi “Susun kebutuhan” menjadi navy.
+- [x] Menjaga heading, copy, panel form, dan CTA tetap kontras.
+- [x] Memeriksa hasil pada desktop serta mobile.

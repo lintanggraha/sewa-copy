@@ -638,16 +638,16 @@ a { color: inherit; text-decoration: none; }
   .plan-list { margin-bottom: 12px; }
 }
 
-/* Color rhythm: catalog (paper) → packages (navy) → estimator (paper). */
+/* Color rhythm while packages are hidden: catalog (paper) → consultation (navy) → proof (paper). */
 .pricing-section { background: var(--ink); }
 .pricing-section .eyebrow { color: #b9d9ec; }
 .pricing-section .section-heading { color: #fff; }
 .pricing-section .section-copy { color: #bdd1df; }
 .pricing-section .plan-card.featured { background: #12395f; }
 
-.calculator-section { color: var(--graphite); background: #fff; }
-.calculator-section .eyebrow { color: var(--blue); }
-.calculator-section .section-heading { color: var(--ink); }
-.calculator-section .section-copy { color: #506b7f; }
-.calculator-section .calc-note { color: #648094; }
-.calculator-section .calc-panel { background: #f1f7fa; box-shadow: 10px 10px 0 rgb(12 43 78 / 13%); }
+.calculator-section { color: #fff; background: #12395f; }
+.calculator-section .eyebrow { color: #b9d9ec; }
+.calculator-section .section-heading { color: #fff; }
+.calculator-section .section-copy { color: #bdd1df; }
+.calculator-section .calc-note { color: #a3c3d4; }
+.calculator-section .calc-panel { background: #fff; box-shadow: 10px 10px 0 rgb(7 25 43 / 28%); }
